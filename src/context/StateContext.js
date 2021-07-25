@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AppContext from "./AppContext";
 
 const StateContext = ({ children }) => {
   const [status, setStatus] = useState(null);
+  const [played, setPlayed] = useState(false);
   const [oponente, setOponente] = useState(null);
   const [score, setScore] = useState(0);
 
@@ -39,7 +40,15 @@ const StateContext = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ delivery, handleScore, score, oponente, status }}
+      value={{
+        delivery,
+        handleScore,
+        setPlayed,
+        score,
+        oponente,
+        status,
+        played,
+      }}
     >
       {children}
     </AppContext.Provider>

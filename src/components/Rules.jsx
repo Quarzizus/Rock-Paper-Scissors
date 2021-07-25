@@ -7,7 +7,6 @@ const Rules = () => {
   const handleChecked = () => {
     const container = containerRef.current;
     container.classList.toggle("Active");
-    console.log(container.classList);
   };
   return (
     <footer className="Rules">
