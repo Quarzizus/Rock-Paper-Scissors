@@ -1,15 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
-$font: "Bebas Neue", cursive;
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: rgb(10, 10, 54);
-}
+@import "../Variables.scss";
 .Score {
   margin: 50px auto;
   width: 50%;
