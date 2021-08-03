@@ -11,7 +11,7 @@ const StateContext = ({ children }) => {
     return Math.floor(Math.random() * (max - min)) + min;
   };
   const handlePicked = async () => {
-    const movimientos = ["Piedra", "Papel", "Tijera"];
+    const movimientos = ["Rock", "Paper", "Scissors"];
     const picked = movimientos[getRandomInt(0, 3)];
     setOponente(picked);
     return picked;
@@ -43,6 +43,7 @@ const StateContext = ({ children }) => {
       value={{
         delivery,
         handleScore,
+        handlePicked,
         setPlayed,
         score,
         oponente,

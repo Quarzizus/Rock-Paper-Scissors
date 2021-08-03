@@ -33,10 +33,14 @@
   top: 200px;
   right: calc(50% - 100px);
 }
-.Movimiento:active ~ .Movimiento {
-  background: black;
-}
+
 .Select {
   top: 100px;
   right: calc(100% - 200px);
+}
+
+.MovimientoRival {
+  background-color: aqua;
+  top: 100px;
+  right: 0;
 }

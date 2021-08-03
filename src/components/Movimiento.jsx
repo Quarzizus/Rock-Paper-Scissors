@@ -1,9 +1,9 @@
 import React, { useRef, useContext } from "react";
-import "../styles/components/Movimiento.scss";
 import AppContext from "../context/AppContext";
+import "../styles/components/Movimiento.scss";
 
 const Movimiento = ({ icon, color }) => {
-  const { played, setPlayed } = useContext(AppContext);
+  const { setPlayed } = useContext(AppContext);
   const movimientoRef = useRef(null);
   const selectSimblings = (node) => {
     [...node.parentNode.childNodes].map((child) => {
@@ -22,7 +22,6 @@ const Movimiento = ({ icon, color }) => {
       onClick={handleClick}
       ref={movimientoRef}
     >
-      {console.log(played)}
       <div className="Movimiento_container">
         <img src={icon} alt="" />
       </div>
