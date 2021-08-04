@@ -11,7 +11,11 @@ const StateContext = ({ children }) => {
   const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
   };
-
+  const handlePicked = () => {
+    const movimientos = ["Rock", "Paper", "Scissors"];
+    const picked = movimientos[getRandomInt(0, 3)];
+    setRespuestaMaquina(picked);
+  };
   const handleScore = () => {
     status == "Ganador" ? setScore(score + 1) : setScore(0);
   };
@@ -30,18 +34,18 @@ const StateContext = ({ children }) => {
       setStatus("Perdedor");
     if (respuestaUsuario == respuestaMaquina) setStatus("Empate");
 
-    // handleScore();
+    handleScore();
   };
 
   return (
     <AppContext.Provider
       value={{
         delivery,
-        handleScore,
-        getRandomInt,
         setPlayed,
         setRespuestaMaquina,
         setRespuestaUsuario,
+        getRandomInt,
+        handlePicked,
         respuestaMaquina,
         respuestaUsuario,
         score,

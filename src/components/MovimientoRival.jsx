@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+// import AppContext from "../context/AppContext";
 import "../styles/components/Movimiento.scss";
 
-const MovimientoRival = ({ icon }) => {
+const MovimientoRival = ({ icon, picked }) => {
+  // const { setRespuestaMaquina } = useContext(AppContext);
+
   return (
     <article className="MovimientoRival Movimiento">
       <div className="Movimiento_container">
         <img src={icon} alt="" />
-        {/* {console.log(icon)} */}
       </div>
     </article>
   );

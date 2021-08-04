@@ -9,13 +9,8 @@ import AppContext from "../context/AppContext";
 import "../styles/containers/Success.scss";
 
 const Success = () => {
-  const {
-    respuestaMaquina,
-    respuestaUsuario,
-    setRespuestaMaquina,
-    getRandomInt,
-    delivery,
-  } = useContext(AppContext);
+  const { respuestaMaquina, respuestaUsuario, delivery, handlePicked } =
+    useContext(AppContext);
 
   const setMovimiento = {
     Paper: [Paper, "Azul", "Paper"],
@@ -24,9 +19,7 @@ const Success = () => {
   };
 
   useEffect(() => {
-    const movimientos = ["Rock", "Paper", "Scissors"];
-    const picked = movimientos[getRandomInt(0, 3)];
-    setRespuestaMaquina(picked);
+    handlePicked();
     delivery();
   }, []);
 

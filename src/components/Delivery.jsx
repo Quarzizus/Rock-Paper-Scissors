@@ -12,8 +12,7 @@ const Delivery = () => {
   };
   return (
     <section className="Delivery">
-      {!status ? <h2>None</h2> : <h2>{status}</h2>}
-      {console.log(status)}
+      <h2>None</h2>
       <button onClick={handleClick}>PLAY AGAIN</button>
     </section>
   );
