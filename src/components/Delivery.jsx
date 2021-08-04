@@ -4,7 +4,7 @@ import AppContext from "../context/AppContext";
 import "../styles/components/Delivery.scss";
 
 const Delivery = () => {
-  const { status, delivery, setPlayed } = useContext(AppContext);
+  const { status, setPlayed } = useContext(AppContext);
   const history = useHistory();
   const handleClick = () => {
     setPlayed(false);
@@ -12,7 +12,8 @@ const Delivery = () => {
   };
   return (
     <section className="Delivery">
-      <h2>{status || "None"}</h2>
+      {!status ? <h2>None</h2> : <h2>{status}</h2>}
+      {console.log(status)}
       <button onClick={handleClick}>PLAY AGAIN</button>
     </section>
   );

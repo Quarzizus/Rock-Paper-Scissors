@@ -8,17 +8,10 @@ const Movimiento = ({ icon, color, name }) => {
   const movimientoRef = useRef(null);
   const history = useHistory();
 
-  const deleteSimblings = (node) => {
-    [...node.parentNode.childNodes].map((child) => {
-      !child.classList.contains("Select") ? child.remove() : null;
-    });
-  };
-
   const handleClick = () => {
     setRespuestaUsuario(name);
     const movimiento = movimientoRef.current;
     movimiento.classList.add("Select");
-    deleteSimblings(movimiento);
     setPlayed(true);
     history.push("/success");
   };

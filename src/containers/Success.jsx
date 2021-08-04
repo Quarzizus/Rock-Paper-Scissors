@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Movimiento from "../components/Movimiento";
 import MovimientoRival from "../components/MovimientoRival";
 import Rock from "../images/icon-rock.svg";
@@ -9,12 +9,27 @@ import AppContext from "../context/AppContext";
 import "../styles/containers/Success.scss";
 
 const Success = () => {
-  const { respuestaMaquina, respuestaUsuario } = useContext(AppContext);
+  const {
+    respuestaMaquina,
+    respuestaUsuario,
+    setRespuestaMaquina,
+    getRandomInt,
+    delivery,
+  } = useContext(AppContext);
+
   const setMovimiento = {
     Paper: [Paper, "Azul", "Paper"],
     Rock: [Rock, "Rojo", "Rock"],
     Scissors: [Scissors, "Amarillo", "Scissors"],
   };
+
+  useEffect(() => {
+    const movimientos = ["Rock", "Paper", "Scissors"];
+    const picked = movimientos[getRandomInt(0, 3)];
+    setRespuestaMaquina(picked);
+    delivery();
+  }, []);
+
   return (
     <section className="Success">
       {respuestaUsuario ? (
@@ -27,7 +42,9 @@ const Success = () => {
         <Movimiento />
       )}
       <Delivery />
-      {respuestaMaquina ? console.log(setMovimiento[respuestaMaquina]) : null}
+      {respuestaMaquina ? (
+        <MovimientoRival icon={setMovimiento[respuestaMaquina][0]} />
+      ) : null}
     </section>
   );
 };
