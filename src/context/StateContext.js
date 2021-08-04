@@ -4,38 +4,33 @@ import AppContext from "./AppContext";
 const StateContext = ({ children }) => {
   const [status, setStatus] = useState(null);
   const [played, setPlayed] = useState(false);
-  const [oponente, setOponente] = useState(null);
+  const [respuestaMaquina, setRespuestaMaquina] = useState(null);
+  const [respuestaUsuario, setRespuestaUsuario] = useState(null);
   const [score, setScore] = useState(0);
 
   const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
   };
-  const handlePicked = async () => {
-    const movimientos = ["Rock", "Paper", "Scissors"];
-    const picked = movimientos[getRandomInt(0, 3)];
-    setOponente(picked);
-    return picked;
-  };
+
   const handleScore = () => {
     status == "Ganador" ? setScore(score + 1) : setScore(0);
   };
-  const delivery = async (e) => {
-    const respuestaUsuario = await e.target.name;
-    const respuestaMaquina = await handlePicked();
-    if (respuestaUsuario == "Piedra" && respuestaMaquina == "Tijera")
+  const delivery = () => {
+    if (respuestaUsuario == "Rock" && respuestaMaquina == "Scissors")
       setStatus("Ganador");
-    if (respuestaUsuario == "Piedra" && respuestaMaquina == "Papel")
+    if (respuestaUsuario == "Rock" && respuestaMaquina == "Paper")
       setStatus("Perdedor");
-    if (respuestaUsuario == "Papel" && respuestaMaquina == "Piedra")
+    if (respuestaUsuario == "Paper" && respuestaMaquina == "Rock")
       setStatus("Ganador");
-    if (respuestaUsuario == "Papel" && respuestaMaquina == "Tijera")
+    if (respuestaUsuario == "Paper" && respuestaMaquina == "Scissors")
       setStatus("Perdedor");
-    if (respuestaUsuario == "Tijera" && respuestaMaquina == "Papel")
+    if (respuestaUsuario == "Scissors" && respuestaMaquina == "Paper")
       setStatus("Ganador");
-    if (respuestaUsuario == "Tijera" && respuestaMaquina == "Piedra")
+    if (respuestaUsuario == "Scissors" && respuestaMaquina == "Rock")
       setStatus("Perdedor");
     if (respuestaUsuario == respuestaMaquina) setStatus("Empate");
-    handleScore();
+
+    // handleScore();
   };
 
   return (
@@ -43,10 +38,13 @@ const StateContext = ({ children }) => {
       value={{
         delivery,
         handleScore,
-        handlePicked,
+        getRandomInt,
         setPlayed,
+        setRespuestaMaquina,
+        setRespuestaUsuario,
+        respuestaMaquina,
+        respuestaUsuario,
         score,
-        oponente,
         status,
         played,
       }}

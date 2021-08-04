@@ -3,15 +3,19 @@ import AppContext from "../context/AppContext";
 import "../styles/components/Movimiento.scss";
 
 const MovimientoRival = ({ icon }) => {
-  const { handlePicked, oponente } = useContext(AppContext);
-  const Icon = icon[oponente];
+  const { setRespuestaMaquina, getRandomInt } = useContext(AppContext);
+
   useEffect(() => {
-    handlePicked();
+    const movimientos = ["Rock", "Paper", "Scissors"];
+    const picked = movimientos[getRandomInt(0, 3)];
+    setRespuestaMaquina(picked);
   }, []);
+
   return (
     <article className="MovimientoRival Movimiento">
       <div className="Movimiento_container">
-        <img src={Icon} alt="" />
+        {/* <img src={icon} alt="" /> */}
+        {/* {console.log(icon)} */}
       </div>
     </article>
   );

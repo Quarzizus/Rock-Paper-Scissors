@@ -33,14 +33,17 @@
   top: 200px;
   right: calc(50% - 100px);
 }
+.Negro {
+  background: linear-gradient(to bottom, rgb(61, 60, 60), #000);
+}
 
 .Select {
   top: 100px;
-  right: calc(100% - 200px);
+  right: calc(100% - 100px);
 }
 
 .MovimientoRival {
   background-color: aqua;
   top: 100px;
-  right: 0;
+  right: -100px;
 }
