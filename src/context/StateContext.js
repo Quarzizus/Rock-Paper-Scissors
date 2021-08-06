@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import AppContext from "./AppContext";
+// IMG
+import Rock from "../images/icon-rock.svg";
+import Paper from "../images/icon-paper.svg";
+import Scissors from "../images/icon-scissors.svg";
 
 const StateContext = ({ children }) => {
   const [status, setStatus] = useState(null);
@@ -7,6 +11,12 @@ const StateContext = ({ children }) => {
   const [respuestaMaquina, setRespuestaMaquina] = useState(null);
   const [respuestaUsuario, setRespuestaUsuario] = useState(null);
   const [score, setScore] = useState(0);
+
+  const setMovimiento = {
+    Paper: [Paper, "Azul", "Paper"],
+    Rock: [Rock, "Rojo", "Rock"],
+    Scissors: [Scissors, "Amarillo", "Scissors"],
+  };
 
   const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -20,6 +30,7 @@ const StateContext = ({ children }) => {
     status == "Ganador" ? setScore(score + 1) : setScore(0);
   };
   const delivery = () => {
+    // console.log(respuestaUsuario, respuestaMaquina);
     if (respuestaUsuario == "Rock" && respuestaMaquina == "Scissors")
       setStatus("Ganador");
     if (respuestaUsuario == "Rock" && respuestaMaquina == "Paper")
@@ -34,7 +45,7 @@ const StateContext = ({ children }) => {
       setStatus("Perdedor");
     if (respuestaUsuario == respuestaMaquina) setStatus("Empate");
 
-    handleScore();
+    // handleScore();
   };
 
   return (
@@ -44,7 +55,7 @@ const StateContext = ({ children }) => {
         setPlayed,
         setRespuestaMaquina,
         setRespuestaUsuario,
-        getRandomInt,
+        setMovimiento,
         handlePicked,
         respuestaMaquina,
         respuestaUsuario,

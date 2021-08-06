@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Paper from "../images/icon-paper.svg";
 import Rock from "../images/icon-rock.svg";
 import Scissors from "../images/icon-scissors.svg";
 import Movimiento from "../components/Movimiento";
-import AppContext from "../context/AppContext";
 import "../styles/containers/Choose.scss";
 
 const Choose = () => {
-  const {} = useContext(AppContext);
-
   return (
     <section className="Choose">
       <Movimiento icon={Paper} color="Azul" name="Paper" />
