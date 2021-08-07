@@ -34,16 +34,19 @@
   right: calc(50% - 100px);
 }
 .Negro {
-  background: linear-gradient(to bottom, rgb(61, 60, 60), #000);
+  background: linear-gradient(to bottom, rgb(24, 23, 23), #000);
 }
-
+.NoSelect {
+  display: none;
+}
 .Select {
   top: 100px;
   right: calc(100% - 100px);
 }
-
 .MovimientoRival {
-  background-color: aqua;
   top: 100px;
   right: -100px;
+  .Movimiento_container {
+    background: white;
+  }
 }

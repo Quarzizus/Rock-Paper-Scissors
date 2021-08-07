@@ -17,7 +17,6 @@ const StateContext = ({ children }) => {
     Rock: [Rock, "Rojo", "Rock"],
     Scissors: [Scissors, "Amarillo", "Scissors"],
   };
-
   const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
   };
@@ -27,10 +26,15 @@ const StateContext = ({ children }) => {
     setRespuestaMaquina(picked);
   };
   const handleScore = () => {
-    status == "Ganador" ? setScore(score + 1) : setScore(0);
+    if (status == "Ganador") {
+      setScore(score + 1);
+    } else if (status == "Perdedor") {
+      setScore(0);
+    } else {
+      null;
+    }
   };
   const delivery = () => {
-    // console.log(respuestaUsuario, respuestaMaquina);
     if (respuestaUsuario == "Rock" && respuestaMaquina == "Scissors")
       setStatus("Ganador");
     if (respuestaUsuario == "Rock" && respuestaMaquina == "Paper")
@@ -44,8 +48,6 @@ const StateContext = ({ children }) => {
     if (respuestaUsuario == "Scissors" && respuestaMaquina == "Rock")
       setStatus("Perdedor");
     if (respuestaUsuario == respuestaMaquina) setStatus("Empate");
-
-    // handleScore();
   };
 
   return (
@@ -57,6 +59,7 @@ const StateContext = ({ children }) => {
         setRespuestaUsuario,
         setMovimiento,
         handlePicked,
+        handleScore,
         respuestaMaquina,
         respuestaUsuario,
         score,
