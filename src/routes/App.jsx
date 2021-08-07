@@ -6,11 +6,11 @@ import "../styles/Variables.scss";
 
 const App = () => {
   return (
-    <div className="App">
+    <>
       <Score />
       <Choose />
       <Rules />
-    </div>
+    </>
   );
 };
 

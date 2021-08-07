@@ -1,8 +1,7 @@
 @import "../Variables.scss";
 .Score {
-  margin: 50px auto;
   width: 50%;
-  height: 140px;
+  min-width: 380px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,5 +28,12 @@
       color: rgb(153, 145, 145);
       font-size: 45px;
     }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 610px) {
+  .Score {
+    min-width: 100%;
+    padding: 10px 15px;
   }
 }

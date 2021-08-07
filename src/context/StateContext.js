@@ -26,9 +26,9 @@ const StateContext = ({ children }) => {
     setRespuestaMaquina(picked);
   };
   const handleScore = () => {
-    if (status == "Ganador") {
+    if (status == "Winner") {
       setScore(score + 1);
-    } else if (status == "Perdedor") {
+    } else if (status == "Loser") {
       setScore(0);
     } else {
       null;
@@ -36,18 +36,18 @@ const StateContext = ({ children }) => {
   };
   const delivery = () => {
     if (respuestaUsuario == "Rock" && respuestaMaquina == "Scissors")
-      setStatus("Ganador");
+      setStatus("Winner");
     if (respuestaUsuario == "Rock" && respuestaMaquina == "Paper")
       setStatus("Perdedor");
     if (respuestaUsuario == "Paper" && respuestaMaquina == "Rock")
-      setStatus("Ganador");
+      setStatus("Winner");
     if (respuestaUsuario == "Paper" && respuestaMaquina == "Scissors")
-      setStatus("Perdedor");
+      setStatus("Loser");
     if (respuestaUsuario == "Scissors" && respuestaMaquina == "Paper")
-      setStatus("Ganador");
+      setStatus("Winner");
     if (respuestaUsuario == "Scissors" && respuestaMaquina == "Rock")
-      setStatus("Perdedor");
-    if (respuestaUsuario == respuestaMaquina) setStatus("Empate");
+      setStatus("Loser");
+    if (respuestaUsuario == respuestaMaquina) setStatus("Draw");
   };
 
   return (

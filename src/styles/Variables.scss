@@ -6,7 +6,21 @@ $font: "Bebas Neue", cursive;
   padding: 0;
   box-sizing: border-box;
 }
+#App {
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 140px 1fr 100px;
+  height: 100vh;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
 
 body {
   background-color: rgb(10, 10, 54);
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 }
