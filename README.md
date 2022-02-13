@@ -16,6 +16,6 @@ https://rps-quargame.web.app/
 
 ## Technologies
 
-- React
-- Sass
-- Webpack
+- React.
+- Sass.
+- Webpack.
