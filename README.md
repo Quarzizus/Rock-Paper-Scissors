@@ -1,6 +1,21 @@
 # Rock-Paper-Scissors
-Try your luck with this game and leave your score at the top. 
-It was built with React and deployed with Firebase
+
+![](src/images/Portada.webp)
+
+I translated the game of rock, paper, and scissors to the web.
+
+## Design
+
+You can look of design and to compare with the result.
+
+[Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH)
 
 ## Page
+
 https://rps-quargame.web.app/
+
+## Technologies
+
+- React
+- Sass
+- Webpack
